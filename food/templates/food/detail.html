@@ -1,0 +1,23 @@
+{% extends "food/base.html" %} {% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <img
+        src="{{ object.item_image }}"
+        alt="{{ object.item_name }}"
+        class="card"
+        style="width: 100%; height: 300px; object-fit: cover"
+      />
+    </div>
+    <div class="col-md-6">
+      <h1>{{ object.item_name }}</h1>
+      <!-- Consistent variable name -->
+      <h2>{{ object.item_desc }}</h2>
+      <h3>Ksh.{{ object.item_price }}</h3>
+      <a href="{% url 'food:delete_item' object.id %}" class="btn btn-danger"
+        >Delete</a
+      >
+    </div>
+  </div>
+</div>
+{% endblock %}
